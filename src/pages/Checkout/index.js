@@ -118,7 +118,7 @@ const CheckoutPage = () => {
   // console.log('payUrl: ----', payUrl)
 
   const handleSubmit = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const data = {
         payment_type: paymentType,
@@ -156,9 +156,6 @@ const CheckoutPage = () => {
         _ids: revovedCartItemIds,
       });
 
-      // const dataSendEmail = { orderItems, order_id }
-      // await SEND_EMAIL.sendEmail(dataSendEmail)
-
       if (
         orderItemsResponse.status === STATUS_FAIL ||
         cartRemoveResponse.status === STATUS_FAIL
@@ -173,7 +170,7 @@ const CheckoutPage = () => {
       });
 
       dispatch(cartActions.loadCart(newCartItems));
-      setLoading(false);
+      // setLoading(false);
       notification.success({
         placement: 'topRight',
         message: 'Successfully',
@@ -182,6 +179,20 @@ const CheckoutPage = () => {
       });
 
       history.push('/success');
+
+      const dataSendEmail = { orderItems, order_id }
+      try {
+        const reponse = await SEND_EMAIL.sendEmail(dataSendEmail)
+        if (reponse?.status === 200) {
+          console.log('Gửi hóa đơn về email thành công');
+        } else {
+          console.log('Gửi hóa đơn về email thành công');
+        }
+
+      } catch (error) {
+        console.log('Failed to send bill', error);
+      }
+
     } catch (error) {
       console.log(error);
     }

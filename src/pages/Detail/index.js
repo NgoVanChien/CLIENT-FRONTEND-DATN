@@ -126,9 +126,6 @@ const DetailProductPage = () => {
         duration: 3,
       });
 
-      console.log('lengthFavoriteList', lengthFavoriteList)
-      console.log('first', numberFavoriteList)
-
       dispatch(commonActions.updateNumberFavoriteList(numberFavoriteList ? numberFavoriteList + 1 : lengthFavoriteList + 1))
 
       notification.success({
