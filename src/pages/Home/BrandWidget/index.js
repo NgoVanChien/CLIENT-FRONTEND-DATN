@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import { Link } from "react-router-dom";
 import { Brand } from "../../../components";
 import "./style.scss";
@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 
 const BrandWidget = () => {
   const [brandsList, setBrandsList] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
     (async function () {
       try {
-        const response = await COMMON_API.getBrands();
-
-        setBrandsList(response.data);
+        const response = await COMMON_API.getAllBrand();
+        setData(response.data)
+        setBrandsList(response.data?.slice(0, 8));
       } catch (error) {
         console.log(error);
       }
@@ -41,12 +42,16 @@ const BrandWidget = () => {
           <Row gutter={[{ xl: 12, lg: 16, md: 12, sm: 12, xs: 12 }, 0]}>
             {brandsList?.map((item) => {
               return (
-                <Col xl={4} lg={6} md={6} sm={8} xs={12} key={item._id}>
+                <Col xl={4} lg={6} md={6} sm={8} xs={12} key={item._id} style={{ margin: '8px 0px' }}>
                   <Brand data={item} />
                 </Col>
               );
             })}
           </Row>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }} onClick={() => setBrandsList(data)}>
+          <Button>Xem thêm</Button>
         </div>
       </div>
     </div>

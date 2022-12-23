@@ -88,11 +88,13 @@ const CheckoutPage = () => {
     }
   }, [orderItems, useScore]);
 
-
   const totalOriginAmount = useMemo(() => {
     try {
       const total = orderItems.reduce((prev, cur) => {
-        return prev + cur.quantity * cur.product.price;
+        return (
+          prev +
+          cur.quantity * getSalePrice(cur.product.price, cur.product.sale_percent)
+        );
       }, 0);
 
       return total;
@@ -100,6 +102,8 @@ const CheckoutPage = () => {
       return 0;
     }
   }, [orderItems]);
+
+  console.log('totalOriginAmount', totalOriginAmount);
 
   const addressPayload = {
     province: address?.province,

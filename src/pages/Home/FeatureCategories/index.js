@@ -2,16 +2,18 @@ import { Category } from "../../../components";
 import "./style.scss";
 import COMMON_API from "../../../api/common";
 import { useEffect, useState } from "react";
+import { Button } from "antd";
 
 const FeatureCategories = () => {
   const [categoriesList, setCategoriesList] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
     (async function () {
       try {
-        const response = await COMMON_API.getCategories();
-        console.log('response', response);
-        setCategoriesList(response.data);
+        const response = await COMMON_API.getAllCategory();
+        setData(response.data)
+        setCategoriesList(response.data?.slice(0, 8));
       } catch (error) {
         console.log(error);
       }
@@ -30,8 +32,13 @@ const FeatureCategories = () => {
               </div>
             );
           })}
+
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0', paddingBottom: 32 }} onClick={() => setCategoriesList(data)}>
+          <Button>Xem thêm</Button>
         </div>
       </div>
+
     </div>
   );
 };

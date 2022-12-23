@@ -2,7 +2,7 @@ import {
   EnvironmentOutlined,
   LockOutlined,
   MailOutlined,
-  PhoneOutlined,
+  PhoneOutlined
 } from '@ant-design/icons';
 import { Button, Form, Input, notification, Radio } from 'antd';
 import _ from 'lodash';
@@ -50,7 +50,7 @@ const Account = () => {
       if (response.status === STATUS_FAIL)
         return notification.error({
           placement: 'topRight',
-          message: 'Can not update cart!',
+          message: 'Can not update user!',
           description: response.message,
           duration: 3,
         });
@@ -94,9 +94,11 @@ const Account = () => {
     }
   };
 
+
+
   return (
     <div className="account">
-      {!userInfo ? (
+      {!userInfo?._id ? (
         <LoadingSection />
       ) : (
         <>
@@ -113,6 +115,7 @@ const Account = () => {
                 onFinish={submit}
                 requiredMark={false}
                 scrollToFirstError
+                initialValues={{ sex: userInfo.sex }}
               >
                 <div className="user__name__fields-container">
                   <Form.Item
@@ -151,7 +154,7 @@ const Account = () => {
                   label="Giới tính"
                   labelAlign="left"
                 >
-                  <Radio.Group value={userInfo.sex}>
+                  <Radio.Group value={userInfo.sex} >
                     <Radio value={MALE}>Nam</Radio>
                     <Radio value={FEMALE}>Nữ</Radio>
                     <Radio value={BISEXUAL}>Khác</Radio>
@@ -219,8 +222,9 @@ const Account = () => {
             </div>
           </div>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 
