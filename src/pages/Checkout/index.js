@@ -184,7 +184,10 @@ const CheckoutPage = () => {
 
       history.push('/success');
 
-      const dataSendEmail = { orderItems, order_id }
+      const dataSendEmail = {
+        orderItems, order_id,
+        totalAmount,
+      }
       try {
         const reponse = await SEND_EMAIL.sendEmail(dataSendEmail)
         if (reponse?.status === 200) {
