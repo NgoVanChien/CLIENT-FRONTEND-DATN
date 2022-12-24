@@ -24,7 +24,7 @@ const tabsList = [
   },
   {
     id: 4,
-    name: "Quà tết 2022",
+    name: "Quà tết 2023",
     img: "https://salt.tikicdn.com/cache/w100/ts/product/13/aa/04/dbd4e7f81875aad528c539ed7e600088.png.webp",
   },
   {
