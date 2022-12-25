@@ -50,11 +50,13 @@ const BrandWidget = () => {
           </Row>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }} onClick={() => setBrandsList(data)}>
-          <Button>Xem thêm</Button>
+        <div style={{
+          display: 'flex', justifyContent: 'center', margin: '16px 0'
+        }} onClick={() => setBrandsList(data)}>
+          < Button style={{ width: 240, padding: '8px 12px', borderRadius: 4, border: '1px solid #0d5cb6', height: 38, color: '#0d5cb6', fontSize: 13 }}> Xem Thêm</Button>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

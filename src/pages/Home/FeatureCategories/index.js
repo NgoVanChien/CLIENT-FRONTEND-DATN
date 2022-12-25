@@ -35,7 +35,7 @@ const FeatureCategories = () => {
 
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0', paddingBottom: 32 }} onClick={() => setCategoriesList(data)}>
-          <Button>Xem thêm</Button>
+          <Button style={{ width: 240, padding: '8px 12px', borderRadius: 4, border: '1px solid #0d5cb6', height: 38, color: '#0d5cb6', fontSize: 13 }}>Xem Thêm</Button>
         </div>
       </div>
 
