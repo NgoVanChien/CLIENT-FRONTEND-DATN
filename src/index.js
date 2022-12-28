@@ -5,12 +5,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
         <App />
+        <MessengerCustomerChat
+          // pageId="100070641994521"
+          pageId="104045158495285"
+          appId="6316206668405566"
+        // htmlRef="<REF_STRING>"
+        />
       </Router>
     </Provider>
   </React.StrictMode>,
