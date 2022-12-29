@@ -3,6 +3,7 @@ import { notification } from 'antd';
 import 'antd/dist/antd.min.css';
 import moment from 'moment';
 import { useEffect } from 'react';
+import MessengerCustomerChat from 'react-messenger-customer-chat/lib/MessengerCustomerChat';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import ADDRESS_API from './api/address';
@@ -174,6 +175,12 @@ function App() {
           <MainLayout />
         </Route>
       </Switch>
+      <MessengerCustomerChat
+        // pageId="100070641994521"
+        pageId="104045158495285"
+        appId="6316206668405566"
+      // htmlRef="<REF_STRING>"
+      />
     </div>
   );
 }
