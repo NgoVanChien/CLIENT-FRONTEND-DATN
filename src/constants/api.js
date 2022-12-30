@@ -1,6 +1,6 @@
 // export const baseURL = "http://localhost:5000/api/v1";
 // export const baseURL = "https://webdatnthiendong.herokuapp.com/api/v1";
-export const baseURL = "https://api-server-datn-omnh1rt5n-ngovanchien.vercel.app/";
+export const baseURL = "https://api-server-datn-production.up.railway.app/api/v1";
 export const GHN_URL =
   "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data";
 
