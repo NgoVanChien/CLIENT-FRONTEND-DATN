@@ -177,8 +177,7 @@ function App() {
       </Switch>
       <MessengerCustomerChat
         // pageId="100070641994521"
-        // pageId="104045158495285"
-        pageId="100070641994521"
+        pageId="104045158495285"
         appId="232513978556454"
       // htmlRef="<REF_STRING>"
       />
