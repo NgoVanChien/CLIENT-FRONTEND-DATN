@@ -12,7 +12,12 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <App />
-
+        <MessengerCustomerChat
+          pageId="100089169848202"
+          // pageId="104045158495285"
+          appId="483410550637236"
+        // htmlRef="<REF_STRING>"
+        />
       </Router>
     </Provider>
   </React.StrictMode>,
